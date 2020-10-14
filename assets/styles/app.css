@@ -1,0 +1,199 @@
+* {
+    font-family: 'Open sans', sans-serif;
+    color: #585858;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div#main-container{
+    min-height: 20vh;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr;
+    margin: 2rem auto;
+    border-top: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+}
+div.todo-container{
+    width: 100%;
+}
+header{
+    text-align: center;
+}
+header h1.top-header{
+    font-weight: 300;
+}
+form.todo-form{
+    width: 100%;
+}
+.todo-form div.top-content{
+    background: #FDFDFD;
+    padding: 1rem;
+    border-top: 1px solid #E8E8E8;
+}
+.topcontent-container,
+.todolist-container{
+    width: 44vh;
+    margin: 0 auto;
+}
+.todo-form input.task-input{
+    font-size: 0.8rem;
+    color: #333;
+    width: 90%;
+    min-height: 1.5rem;
+    border: 1px solid #E8E8E8;
+    padding: 0.4rem 1rem;
+    outline: none;
+    border-radius: 1rem;
+   
+}
+.todo-form button.add-task{
+    background: #52A6FA;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.1rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    -webkit-transition: background-color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
+}
+.add-task i{
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.1rem;
+}
+.todolist-container ul.todo-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.todo-list li{
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.todo-list li.task-item{
+    display: flex;
+    padding: 1rem 0;
+}
+.todo-list li.completed{
+    order: 1;
+}
+.todo-list li.task-item::after{
+    display:block;
+    content:"";
+    margin-top:-8px;
+}
+.task-item input.complete-todo{
+    width: 1rem;
+    height: 1rem;
+    outline: none;
+    border-radius: 1rem;
+    border: none;
+}
+.task-item p.todo-desc{
+    margin: 0 1rem 0 2.2rem;
+    flex: 2;
+}
+input[type="checkbox"] {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    top: 3px;
+    left: 4px;
+    display: none;
+}
+.task-item label {
+    position: relative;
+}
+.task-item label.delete-todo{
+    left: -12px;
+    transform: scale(0);
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+.task-item label.complete-todo::before {
+    content: "";
+    background: url(/img/check-circle.svg);
+    background-position: center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    left: 0;
+    position: absolute;
+    transform: scale(0);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.task-item label.delete-todo::before {
+    content: "";
+    background: url(/img/cross-circle.svg);
+    background-position: center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: -15px;
+}  
+.task-item input[type="checkbox"]:checked + label.complete-todo::before {
+    transform: scale(1);
+}
+.task-item input[type="checkbox"]:checked + label.complete-todo::after {
+    border: transparent;
+} 
+.task-item label.complete-todo::after {
+    content: "";
+    border: 1px solid #CECECE;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+.task-item label.complete-todo::after{
+    left: 0;
+}
+label.delete-todo::after{
+    left: -25px;
+}
+.task-item p.todo-desc{
+    position: relative;
+    top: 1px;
+}
+.task-item p.todo-desc{
+    --strike--display: scaleX(0);
+}
+.task-item p.todo-desc::before{
+    content: '';
+    width: 90%;
+    position: absolute;
+    top: 9px;
+    border-top: 1px solid #CECECE;
+    transform: var(--strike--display);
+    transform-origin: left center;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+/*
+ Special Selector
+*/
+::-webkit-input-placeholder { 
+    color: #EAEAEA
+} 
+:-ms-input-placeholder { 
+    color: #EAEAEA
+}
+::placeholder {
+    color: #EAEAEA
+}
